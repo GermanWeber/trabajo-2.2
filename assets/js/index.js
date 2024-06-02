@@ -2,7 +2,7 @@
 
 const obtenerDigimonAsyncAwait = async () => {
     try {
-      const response = await fetch('https://api-de-zapatos.onrender.com');
+      const response = await fetch('https://digimon-api.vercel.app/api/digimon');
       
       if (!response.ok) {
         throw new Error('Hubo un problema al obtener los datos.');
@@ -24,8 +24,10 @@ const obtenerDigimonAsyncAwait = async () => {
       const zapatos = await obtenerDigimonAsyncAwait();
       localStorage.setItem("zapatos",JSON.stringify(zapatos));
       zapatos.map((zapato) => { 
+
         
-        console.log(zapato);
+        
+        
         const cardCol = document.createElement('div');
         cardCol.classList.add('col-sm-4');
 
@@ -64,8 +66,11 @@ const obtenerDigimonAsyncAwait = async () => {
   }
 
   // Ejecutar la función para mostrar los Digimon https://digimon-api.vercel.app/api/digimon
-  mostrarDigimon();
 
+//   document.getElementById('zapato').addEventListener('click', async () => {
+//     })
+    mostrarDigimon();
+   
 
 
 
