@@ -80,3 +80,45 @@ fetchApiAll()
     .catch((error) => {
         console.log(`El error es: ${error}`);    
     });
+
+
+    const enviarData = (id , Title , Image, Title_URL, Price) => {
+        const rutaArchivoHTML = './detalles.html';
+        
+        console.log(id);
+        console.log(Title);
+        console.log(Image);
+        console.log(Title_URL);
+        console.log(Price);
+        //Realiza una solicitud para obtener el contenido del archivo HTML
+        fetch(rutaArchivoHTML)
+             .then((response) => response.text())
+             .then(html => {
+    
+                // Una vez que hayas obtenido el contenido del archivo HTML, puedes manipularlo
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+    
+    //         // Modifica el contenido del archivo HTML como desees
+               const imagePage = doc.getElementById('imagePage');
+               imagePage.src = Image;
+    
+               const namePage = doc.getElementById('name');
+                namePage.textContent = Title;
+
+                const descPage = doc.getElementById('descripcion');
+                descPage.textContent = Title_URL;
+    
+               const idPrecio = doc.getElementById('precio');
+               idPrecio.textContent = Price;
+    
+               const nuevoHTML = new XMLSerializer().serializeToString(doc);               
+
+          // Finalmente, puedes usar el nuevo HTML como desees, por ejemplo, inyectándolo en tu página actual
+            document.body.innerHTML = nuevoHTML;
+             })
+    
+        .catch(error => {
+          console.error('Error al cargar el archivo HTML:', error);
+        });
+    }    

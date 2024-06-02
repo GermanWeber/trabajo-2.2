@@ -19,7 +19,7 @@ const createCards =  (zapatos) => {
         const divRow = document.createElement('div');
              divRow.classList.add("col-xl-3");
              divRow.classList.add("col-lg-3");
-             divRow.classList.add("col-md-3");
+             divRow.classList.add("col-md-4");
              divRow.classList.add("col-sm-12");
              divRow.classList.add("col-xs-12");
 
@@ -32,7 +32,8 @@ const createCards =  (zapatos) => {
              imgCard.classList.add('card-img-top');
              imgCard.classList.add('mt-2');
              imgCard.classList.add('mx-auto');
-             imgCard.classList.add('w-75');
+             imgCard.classList.add('w-85');
+             
              imgCard.src = foto;
 
              const divBody = document.createElement('div');
