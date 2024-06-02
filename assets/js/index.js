@@ -2,7 +2,7 @@
 
 const obtenerDigimonAsyncAwait = async () => {
     try {
-      const response = await fetch('https://digimon-api.vercel.app/api/digimon');
+      const response = await fetch('https://api-de-zapatos.onrender.com');
       
       if (!response.ok) {
         throw new Error('Hubo un problema al obtener los datos.');
@@ -10,7 +10,7 @@ const obtenerDigimonAsyncAwait = async () => {
       
       const data = await response.json();
       console.log(data);
-      return data;
+      return data.zapatos;
       
     } catch (error) {
       throw error;
@@ -87,7 +87,7 @@ const obtenerDigimonAsyncAwait = async () => {
 // };
 
 // const createCards = (zapatos) => {
-//     const lista = document.getElementById('#lista');
+//     const lista = document.getElementById('lista');
 
 //     zapatos.map((zapato) => {
 //         console.log(zapato.precio);
