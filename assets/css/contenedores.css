@@ -15,7 +15,7 @@
     padding: auto;
     border-radius: 0.5rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr;
+    grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr,1fr;
   
   
     grid-template-areas:
@@ -23,6 +23,7 @@
       "ttl"
       "e-m"
       "pas"
+      "pas2"
       "btn"
       "rec"
     ;
@@ -50,6 +51,12 @@
   .contenedor-login .contra {
     margin-bottom: 60px;
     grid-area: pas;
+    height: 100%;
+    background-color: white;
+  }
+  .contenedor-login .contra2 {
+    margin-bottom: 60px;
+    grid-area: pas2;
     height: 100%;
     background-color: white;
   }
