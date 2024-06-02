@@ -44,9 +44,7 @@ const createCards =  (zapatos) => {
              tituloC.classList.add('card-title');
              tituloC.textContent = name;
 
-             const levelC = document.createElement('p');
-             levelC.classList.add('card-text');
-             levelC.textContent = id;
+             
 
              const btnVer = document.createElement('button');
              btnVer.classList.add('btn');
@@ -62,7 +60,7 @@ const createCards =  (zapatos) => {
              card.appendChild(divBody);
 
              divBody.appendChild(tituloC);
-             divBody.appendChild(levelC);
+             
              divBody.appendChild(btnVer);
 
              lista.appendChild(divRow);
