@@ -1,5 +1,4 @@
-export let usuarios = [];
-
+let usuarios = [];
 
 document.addEventListener('DOMContentLoaded', function() {
     if(localStorage.getItem('usuarios')) {
@@ -9,28 +8,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-    
-const registro = document.getElementById('registro');
-registro.addEventListener('click', (e)=>{
+const registro = document.querySelector('#registro');
+registro.addEventListener('click', (e) => {
     e.preventDefault();
     let emailreg = document.getElementById('emailreg').value;
     let passreg = document.getElementById('passreg').value;
     let pass2reg = document.getElementById('pass2reg').value;
-    
-    if (passreg === pass2reg ) {
-        console.log('Contraseñas coinciden');
-    } else {
-        console.error('Contraseñas no coinciden')
+
+
+    let userExistente = usuarios.find(user => user.email === emailreg);
+    if (userExistente) {
+        alert('Email ya existente.');
         return;
     }
 
-    console.log(emailreg);
-    console.log(passreg);
 
-    usuarios.push({email:emailreg, pass:passreg});
+    if (passreg === pass2reg) {
+        usuarios.push({ email: emailreg, pass: passreg });
+        console.log(emailreg, passreg, pass2reg);
+        console.table(usuarios);
+    } else {
+        alert('Las contraseñas no coinciden.');
+    }
 
     let cadenaUsuarios = JSON.stringify(usuarios);
     localStorage.setItem('usuarios', cadenaUsuarios);
-
-    console.log(usuarios);
 });
+
