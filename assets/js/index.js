@@ -12,7 +12,7 @@ const fetchApiAll = async () => {
 };
 
 const createCards = (zapatos) => {
-    const lista = document.getElementById('#lista');
+    const lista = document.getElementById('lista');
 
     zapatos.map((zapato) => {
         console.log(zapato.precio);
