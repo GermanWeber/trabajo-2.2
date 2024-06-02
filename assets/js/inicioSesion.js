@@ -18,6 +18,8 @@ login.addEventListener('click', (e) => {
 
     if (usuarioEncontrado) {
         console.log('Inicio de sesión exitoso');
+        window.location.href = 'index2.html';
+
 
     } else {
         console.error('Usuario o contraseña incorrectos');
