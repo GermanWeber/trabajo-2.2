@@ -19,7 +19,7 @@ const fetchApiAll = async () => {
 
 const createCards = (page) => {
     const lista = document.getElementById('lista');
-    lista.innerHTML = ''; // Limpiar el contenido anterior
+    lista.innerHTML = ''; 
 
     const start = (page - 1) * cardsPerPage;
     const end = start + cardsPerPage;
@@ -82,7 +82,6 @@ const createCards = (page) => {
 const renderPaginationControls = () => {
     const paginationContainer = document.getElementById('pagination');
 
-    // Limpiar controles de paginación anteriores
     paginationContainer.innerHTML = '';
 
     // Botón "Anterior"
@@ -119,16 +118,15 @@ const enviarData = (id, name, foto, descripcion, precio) => {
     console.log(foto);
     console.log(descripcion);
     console.log(precio);
-    //Realiza una solicitud para obtener el contenido del archivo HTML
+
     fetch(rutaArchivoHTML)
         .then((response) => response.text())
         .then(html => {
 
-            // Una vez que hayas obtenido el contenido del archivo HTML, puedes manipularlo
+
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
 
-            //         // Modifica el contenido del archivo HTML como desees
             const imagePage = doc.getElementById('imagePage');
             imagePage.src = foto;
 
@@ -143,7 +141,6 @@ const enviarData = (id, name, foto, descripcion, precio) => {
 
             const nuevoHTML = new XMLSerializer().serializeToString(doc);
 
-            // Finalmente, puedes usar el nuevo HTML como desees, por ejemplo, inyectándolo en tu página actual
             document.body.innerHTML = nuevoHTML;
         })
 
@@ -154,7 +151,6 @@ const enviarData = (id, name, foto, descripcion, precio) => {
 
 fetchApiAll()
     .then(() => {
-        // No necesitas hacer nada aquí ya que todo se maneja dentro de fetchApiAll
     })
     .catch((error) => {
         console.log(`El error es: ${error}`);
