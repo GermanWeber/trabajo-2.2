@@ -1,22 +1,9 @@
 const fetchApiAll = async () => {
     try {
-<<<<<<< HEAD
-      const response = await fetch('https://api-de-zapatos.onrender.com');
-      
-      if (!response.ok) {
-        throw new Error('Hubo un problema al obtener los datos.');
-      }
-      
-      const data = await response.json();
-      console.log(data);
-      return data.zapatos;
-      
-=======
         const response = await fetch("https://api-de-zapatos.onrender.com");
         const data = await response.json();
         console.log(data);
         return data.zapatos;
->>>>>>> b02fe870dabd9c8005cca5bdea3a12f07c966deb
     } catch (error) {
         console.log(error);
     }
@@ -30,105 +17,56 @@ const createCards =  (zapatos) => {
         const { id, name, foto } = zapato;
         
         const divRow = document.createElement('div');
-        divRow.classList.add("col-xl-3", "col-lg-3", "col-md-3", "col-sm-12", "col-xs-12");
+             divRow.classList.add("col-xl-3");
+             divRow.classList.add("col-lg-3");
+             divRow.classList.add("col-md-3");
+             divRow.classList.add("col-sm-12");
+             divRow.classList.add("col-xs-12");
 
-        const card = document.createElement('div');
-        card.classList.add('card', 'mt-2', 'mb-2');
+             const card = document.createElement('div');
+             card.classList.add('card');
+             card.classList.add('mt-2');
+             card.classList.add('mb-2');
 
-        const imgCard = document.createElement('img');
-        imgCard.classList.add('card-img-top', 'mt-2', 'mx-auto', 'w-75');
-        imgCard.src = foto;
+             const imgCard = document.createElement('img');
+             imgCard.classList.add('card-img-top');
+             imgCard.classList.add('mt-2');
+             imgCard.classList.add('mx-auto');
+             imgCard.classList.add('w-75');
+             imgCard.src = foto;
 
-        const divBody = document.createElement('div');
-        divBody.classList.add('card-body', 'text-center', 'mx-auto');
+             const divBody = document.createElement('div');
+             divBody.classList.add('card-body');
+             divBody.classList.add('text-center');
+             divBody.classList.add('mx-auto');
 
-        const tituloC = document.createElement('h5');
-        tituloC.classList.add('card-title');
-        tituloC.textContent = name;
+             const tituloC = document.createElement('h5');
+             tituloC.classList.add('card-title');
+             tituloC.textContent = name;
 
-        const levelC = document.createElement('p');
-        levelC.classList.add('card-text');
-        levelC.textContent = id;            
+             const levelC = document.createElement('p');
+             levelC.classList.add('card-text');
+             levelC.textContent = id;
 
-        divRow.appendChild(card);
-        card.appendChild(imgCard);
-        card.appendChild(divBody);
+             const btnVer = document.createElement('button');
+             btnVer.classList.add('btn');
+             btnVer.classList.add('btn-primary');
+             btnVer.classList.add('text-center');
+             btnVer.classList.add('mx-auto');
 
-<<<<<<< HEAD
-        card.appendChild(cardImg);
-        card.appendChild(cardBody);
-        
-        cardCol.appendChild(card);
-        lista.appendChild(cardCol);
-      });
-    } catch (error) {
-      console.error('Error al obtener datos de Digimon:', error);
-    }
-  }
+             btnVer.textContent = 'Ver detalles';
+             btnVer.addEventListener("click", () => enviarData(id, name, foto));             
 
-  // Ejecutar la función para mostrar los Digimon https://digimon-api.vercel.app/api/digimon
+             divRow.appendChild(card);
+             card.appendChild(imgCard);
+             card.appendChild(divBody);
 
-//   document.getElementById('zapato').addEventListener('click', async () => {
-//     })
-    mostrarDigimon();
-   
+             divBody.appendChild(tituloC);
+             divBody.appendChild(levelC);
+             divBody.appendChild(btnVer);
 
-
-
-
-// const fetchApiAll = async () => {
-//     try {
-//         const response = await fetch("https://api-de-zapatos.onrender.com");
-//         const data = await response.json();
-//         console.log(data);
-//         return data.results;
-//     } catch (error) {
-//         console.log(error);
-//     }
-// };
-
-// const createCards = (zapatos) => {
-//     const lista = document.getElementById('lista');
-
-//     zapatos.map((zapato) => {
-//         console.log(zapato.precio);
-//         const { id, name, foto } = zapato;
-        
-//         const divRow = document.createElement('div');
-//         divRow.classList.add("col-xl-3", "col-lg-3", "col-md-3", "col-sm-12", "col-xs-12");
-
-//         const card = document.createElement('div');
-//         card.classList.add('card', 'mt-2', 'mb-2');
-
-//         const imgCard = document.createElement('img');
-//         imgCard.classList.add('card-img-top', 'mt-2', 'mx-auto', 'w-75');
-//         imgCard.src = foto;
-
-//         const divBody = document.createElement('div');
-//         divBody.classList.add('card-body', 'text-center', 'mx-auto');
-
-//         const tituloC = document.createElement('h5');
-//         tituloC.classList.add('card-title');
-//         tituloC.textContent = name;
-
-//         const levelC = document.createElement('p');
-//         levelC.classList.add('card-text');
-//         levelC.textContent = id;            
-
-//         divRow.appendChild(card);
-//         card.appendChild(imgCard);
-//         card.appendChild(divBody);
-
-//         divBody.appendChild(tituloC);
-//         divBody.appendChild(levelC);
-=======
-        divBody.appendChild(tituloC);
-        divBody.appendChild(levelC);
->>>>>>> b02fe870dabd9c8005cca5bdea3a12f07c966deb
-        
-
-        lista.appendChild(divRow);
-    });
+             lista.appendChild(divRow);
+        });
 }
 
 fetchApiAll()
