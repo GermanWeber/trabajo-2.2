@@ -14,7 +14,7 @@ const createCards =  (zapatos) => {
 
     zapatos.map((zapato) => {
         console.log(zapato.precio);
-        const { id, name, foto } = zapato;
+        const { id, name, foto ,descripcion , precio } = zapato;
         
         const divRow = document.createElement('div');
              divRow.classList.add("col-xl-3");
@@ -55,7 +55,7 @@ const createCards =  (zapatos) => {
              btnVer.classList.add('mx-auto');
 
              btnVer.textContent = 'Ver detalles';
-             btnVer.addEventListener("click", () => enviarData(id, name, foto));             
+             btnVer.addEventListener("click", () => enviarData(id, name, foto, descripcion, precio ));             
 
              divRow.appendChild(card);
              card.appendChild(imgCard);
@@ -78,3 +78,46 @@ fetchApiAll()
     .catch((error) => {
         console.log(`El error es: ${error}`);    
     });
+
+
+
+    const enviarData = (id , name , foto, descripcion, precio) => {
+        const rutaArchivoHTML = './detalles.html';
+        
+        console.log(id);
+        console.log(name);
+        console.log(foto);
+        console.log(descripcion);
+        console.log(precio);
+        //Realiza una solicitud para obtener el contenido del archivo HTML
+        fetch(rutaArchivoHTML)
+             .then((response) => response.text())
+             .then(html => {
+    
+                // Una vez que hayas obtenido el contenido del archivo HTML, puedes manipularlo
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+    
+    //         // Modifica el contenido del archivo HTML como desees
+               const imagePage = doc.getElementById('imagePage');
+               imagePage.src = foto;
+    
+               const namePage = doc.getElementById('name');
+                namePage.textContent = name;
+
+                const descPage = doc.getElementById('descripcion');
+                descPage.textContent = descripcion;
+    
+               const idPrecio = doc.getElementById('precio');
+               idPrecio.textContent = precio;
+    
+               const nuevoHTML = new XMLSerializer().serializeToString(doc);               
+
+          // Finalmente, puedes usar el nuevo HTML como desees, por ejemplo, inyectándolo en tu página actual
+            document.body.innerHTML = nuevoHTML;
+             })
+    
+        .catch(error => {
+          console.error('Error al cargar el archivo HTML:', error);
+        });
+    }    
