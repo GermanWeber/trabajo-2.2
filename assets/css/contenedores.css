@@ -81,3 +81,77 @@
     background-color: white;
   
   }
+
+
+
+
+  .contenedor-producto {
+    margin-top: 40px;
+    min-width: 100%;
+    max-width: 100%;
+    padding: 0px;
+    display: grid; 
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 40px auto 1fr auto 180px 1fr;
+    gap: 5px;
+
+    grid-template-areas:
+  
+    "nav nav"
+    "img nom"
+    "img pre"
+    "lit btn"
+    "det nada"
+    "det nada"
+  ;
+  }
+  
+  
+  .contenedor-producto .navegacion-producto {
+
+    grid-area: nav;
+    height: 100%;  
+    background-color: white;
+  }
+  .contenedor-producto .foto-producto {
+    grid-area: img;
+    height: 100%;  
+    background-color: white;
+  }
+
+  .contenedor-producto .nombre-producto {
+    grid-area: nom;
+    height: 100%;
+    background-color: white;
+  }
+
+  .contenedor-producto .codigo-producto {
+    grid-area: cod;
+    height: 100%;
+    background-color: white;
+  }
+  
+  .contenedor-producto .precio-producto {
+    grid-area: pre;
+    height: 100%;  
+    background-color: white;
+  }
+ 
+  .contenedor-producto .lista-producto {
+    grid-area: lit;
+    height: 100%;  
+    background-color: white;
+  }
+  
+  .contenedor-producto .detalle-producto {
+    grid-area: det;
+    height: 100%; 
+    padding: 20px;
+    background-color: white;
+  }
+
+  .contenedor-producto .botones-producto {
+    grid-area: btn;
+    height: 100%;  
+    background-color: white;
+  }
