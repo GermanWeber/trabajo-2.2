@@ -95,6 +95,10 @@
   .separa {
     justify-content: space-between;
   }
+
+  .separa-poco {
+    justify-content: space-around;
+  }
   
   .abajo-derecha {
     justify-content: end;
