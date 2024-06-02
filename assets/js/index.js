@@ -9,7 +9,9 @@ const obtenerDigimonAsyncAwait = async () => {
       }
       
       const data = await response.json();
+      console.log(data);
       return data;
+      
     } catch (error) {
       throw error;
     }
@@ -19,9 +21,11 @@ const obtenerDigimonAsyncAwait = async () => {
   const mostrarDigimon = async () => {
     const lista = document.getElementById('lista');
     try {
-      const digimones = await obtenerDigimonAsyncAwait();
-      localStorage.setItem("digimones",JSON.stringify(digimones));
-      digimones.map((digimon) => {        
+      const zapatos = await obtenerDigimonAsyncAwait();
+      localStorage.setItem("zapatos",JSON.stringify(zapatos));
+      zapatos.map((zapato) => { 
+        
+        console.log(zapato);
         const cardCol = document.createElement('div');
         cardCol.classList.add('col-sm-4');
 
@@ -32,18 +36,18 @@ const obtenerDigimonAsyncAwait = async () => {
 
         const cardImg = document.createElement('img');
         cardImg.classList.add('card-img-top');
-        cardImg.src = digimon.foto;
+        cardImg.src = zapato.foto;
 
         const cardBody = document.createElement('div');
         cardBody.classList.add('card-body');
 
         const cardTitle = document.createElement('h5');
         cardTitle.classList.add('card-title');
-        cardTitle.textContent = digimon.name;
+        cardTitle.textContent = zapato.name;
 
         const cardText = document.createElement('p');
         cardText.classList.add('card-text');
-        cardText.textContent = `${digimon.precio}`;        
+        cardText.textContent = `${zapato.precio}`;        
 
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
@@ -59,8 +63,12 @@ const obtenerDigimonAsyncAwait = async () => {
     }
   }
 
-  // Ejecutar la función para mostrar los Digimon
+  // Ejecutar la función para mostrar los Digimon https://digimon-api.vercel.app/api/digimon
   mostrarDigimon();
+
+
+
+
 
 // const fetchApiAll = async () => {
 //     try {
