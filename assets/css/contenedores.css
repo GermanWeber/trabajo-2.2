@@ -97,10 +97,12 @@
 
     grid-template-areas:
   
-    "nav nav"
+    
     "img nom"
+    "img nom"
+    "img lit"
     "img pre"
-    "lit btn"
+    "nav btn"
     "det det"
     
   ;

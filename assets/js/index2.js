@@ -34,7 +34,7 @@ const createCards =  (juegos) => {
              imgCard.classList.add('card-img-top');
              imgCard.classList.add('mt-2');
              imgCard.classList.add('mx-auto');
-             imgCard.classList.add('w-75');
+             imgCard.classList.add('h-75');
              imgCard.src = Image;
 
              const divBody = document.createElement('div');
@@ -44,11 +44,9 @@ const createCards =  (juegos) => {
 
              const tituloC = document.createElement('h5');
              tituloC.classList.add('card-title');
-             tituloC.textContent = name;
+             tituloC.textContent = Title;
 
-             const levelC = document.createElement('p');
-             levelC.classList.add('card-text');
-             levelC.textContent = id;
+             
 
              const btnVer = document.createElement('button');
              btnVer.classList.add('btn');
@@ -64,7 +62,6 @@ const createCards =  (juegos) => {
              card.appendChild(divBody);
 
              divBody.appendChild(tituloC);
-             divBody.appendChild(levelC);
              divBody.appendChild(btnVer);
 
              lista2.appendChild(divRow);

@@ -14,7 +14,7 @@ const createCards =  (zapatos) => {
 
     zapatos.map((zapato) => {
         console.log(zapato.precio);
-        const { id, name, foto ,descripcion , precio } = zapato;
+        const { id, name, foto ,descripcion , precio, marca } = zapato;
         
         const divRow = document.createElement('div');
              divRow.classList.add("col-xl-3");
@@ -54,7 +54,7 @@ const createCards =  (zapatos) => {
              btnVer.classList.add('mx-auto');
 
              btnVer.textContent = 'Ver detalles';
-             btnVer.addEventListener("click", () => enviarData(id, name, foto, descripcion, precio ));             
+             btnVer.addEventListener("click", () => enviarData(id, name, foto, descripcion, precio, marca ));             
 
              divRow.appendChild(card);
              card.appendChild(imgCard);
@@ -80,7 +80,7 @@ fetchApiAll()
 
 
 
-    const enviarData = (id , name , foto, descripcion, precio) => {
+    const enviarData = (id , name , foto, descripcion, precio, marca ,) => {
         const rutaArchivoHTML = './detalles.html';
         
         console.log(id);
@@ -88,6 +88,7 @@ fetchApiAll()
         console.log(foto);
         console.log(descripcion);
         console.log(precio);
+        console.log(marca);
         //Realiza una solicitud para obtener el contenido del archivo HTML
         fetch(rutaArchivoHTML)
              .then((response) => response.text())
@@ -106,6 +107,9 @@ fetchApiAll()
 
                 const descPage = doc.getElementById('descripcion');
                 descPage.textContent = descripcion;
+
+                const marcaPage = doc.getElementById('marca');
+                marcaPage.textContent = marca;
     
                const idPrecio = doc.getElementById('precio');
                idPrecio.textContent = precio;
